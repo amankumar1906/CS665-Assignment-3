@@ -1,38 +1,41 @@
 /**
- * Name: FIRST_NAME LAST_NAME
+ * Name: Aman Kumar
  * Course: CS-665 Software Designs & Patterns
- * Date: MM/DD/YYYY
+ * Date: 03/05/2024
  * File Name: Main.java
- * Description: Write a description for this class
+ * Description: The main entry point for the email generation application.
+ * It demonstrates the creation of different customer types
+ * and the generation of personalized emails.
  */
 
 package edu.bu.met.cs665;
 
-import edu.bu.met.cs665.example1.Person;
+import edu.bu.met.cs665.example1.Customer;
+import edu.bu.met.cs665.example1.CustomerFactory;
 
-/**
- * This is the Main class.
- */
 public class Main {
-
   /**
-   * A main method to run examples.
-   * You may use this method for development purposes as you start building your
-   * assignments/final project.  This could prove convenient to test as you are developing.
-   * However, please note that every assignment/final projects requires JUnit tests.
+   * This method creates instances of various customer types through the CustomerFactory,
+   * and then prints the personalized email content for each customer type to the console.
+   *
+   * @param args The command-line arguments passed to the application.
    */
   public static void main(String[] args) {
-    System.out.println("This is a test message from the Main class (Main.java file)");
-  }
+    // Instantiate the CustomerFactory
+    CustomerFactory factory = new CustomerFactory();
 
-  /**
-   * This method performs XYZ and returns String.
-   *
-   * @return String
-   */
-  private String doIt() {
-    Person student = new Person("John", "Doe");
-    return student.getLastName() + ',' + student.getFirstName();
-  }
+    // Create instances of each customer type using the factory
+    Customer businessCustomer = factory.getCustomer("Business");
+    Customer returningCustomer = factory.getCustomer("Returning");
+    Customer frequentCustomer = factory.getCustomer("Frequent");
+    Customer newCustomer = factory.getCustomer("New");
+    Customer vipCustomer = factory.getCustomer("VIP");
 
+    // Generate and display personalized emails for each customer type
+    System.out.println("Business Email: " + businessCustomer.generateEmailContent());
+    System.out.println("Returning Email: " + returningCustomer.generateEmailContent());
+    System.out.println("Frequent Email: " + frequentCustomer.generateEmailContent());
+    System.out.println("New Email: " + newCustomer.generateEmailContent());
+    System.out.println("VIP Email: " + vipCustomer.generateEmailContent());
+  }
 }
