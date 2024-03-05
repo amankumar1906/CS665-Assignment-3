@@ -19,11 +19,22 @@ For each assignment, please answer the following:
 
 - Explain the level of flexibility in your implementation, including how new object types can
 be easily added or removed in the future.
+Answer: The implementation employs the Factory Pattern, which inherently offers a high level of flexibility. This pattern allows for the easy addition or removal of new object types (in this case, customer types) without requiring changes to the client code.
+This design minimizes the impact of changes on existing code, adhering to the Open/Closed Principle of software design, which states that software entities should be open for extension, but closed for modification.
 - Discuss the simplicity and understandability of your implementation, ensuring that it is
 easy for others to read and maintain.
+Answer: The implementation is designed to be simple and understandable. By using the Factory Pattern and separating concerns across different classes, the codebase becomes easier to navigate and maintain. 
+Each customer type class is responsible for its own email content generation, adhering to the Single Responsibility Principle. 
+This makes the system easier to debug and extend since changes to one customer type's email generation logic do not affect others. 
+The use of clear naming conventions and Javadoc comments further enhances readability and maintainability, making it straightforward for other developers to grasp the application's structure and logic.
 - Describe how you have avoided duplicated code and why it is important.
+Answer: Duplicated code is avoided through the use of interfaces and inheritance, ensuring that common functionality is abstracted and shared.
+For instance, all customer types implement the Customer interface, which defines a standard method for generating email content. This approach eliminates the need for repetitive code across different customer types for email generation, reducing the likelihood of errors and inconsistencies.
 - If applicable, mention any design patterns you have used and explain why they were
 chosen.
+Answer: The Factory Pattern is utilized in this implementation to abstract the process of object creation from the client code, allowing the system to introduce new customer types without affecting existing code.
+This pattern was chosen for its ability to handle the creation of various objects based on different criteria (in this case, customer types) while keeping the instantiation logic centralized and decoupled from the usage context.
+This design choice supports the application's scalability and adaptability to future requirements, such as introducing new customer segments or modifying the email generation logic for existing ones.
 
 
 # Maven Commands
